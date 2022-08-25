@@ -1,7 +1,7 @@
 # RNSES-Cynthia-P4
 ## Tabla de contenidos 
 * [Información](#Información)
-* [Tarea 1. Conexión a red WiFi](#Tarea 1)
+* [Tarea 1. Conexión a red WiFi](#Tarea1)
 * [Tarea 2. Poner en hora el módulo mediante un servidor NTP](#setup)
 * [Tarea 3. Aplicación software](#set)
 * [Tarea 4. Servidor WEB](#sp)
