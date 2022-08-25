@@ -13,6 +13,50 @@ Comunicaciones WIFI y stack IP. Manejo de protocolos de alto nivel(HTTP, FTP, NT
 
 ## Tarea 1
 Conexión a la red wifi del laboratorio o a una creada por el móvil como punto de acceso. Extrae tu IP. Comprueba la conectividad con Google mediante un ping.
+* Código
+```
+/*Conexion red Wifi creada por el movil como punto de acceso
+  Extraer IP
+*/
+#include <WiFi.h>
+
+const char* ssID     = "ESP32_wifi"; // Nombre WiFi
+const char* password = "patata13"; // Contraseña 
+
+void setup()
+{
+    Serial.begin(115200);
+    delay(10);
+
+    Serial.println();
+    Serial.print("Conectando a: ");
+    Serial.println(ssID);
+
+    WiFi.begin(ssID, password);
+
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+
+    Serial.println("");
+    Serial.println("Conectado a WiFi");
+    Serial.println("Dirección IP: ");
+    Serial.println(WiFi.localIP());
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+```
+* Proceso
+Encender Mobile Hotspot, ir a la configuración, poner el mismo nombre de la red Wifi que se ha puesto en el código "ESP32_wifi"  y la misma contraseña "patata13"
+
+![mobile hotspot](https://github.com/Cynthia-696529/Imagenes/blob/48967d63d7c4a5e5df5fb80eb3f982df33598f1c/WhatsApp%20Image%202022-08-25%20at%2011.58.21%20AM.jpeg)
+![red-contraseña](https://github.com/Cynthia-696529/Imagenes/blob/48967d63d7c4a5e5df5fb80eb3f982df33598f1c/WhatsApp%20Image%202022-08-25%20at%2011.53.01%20AM.jpeg)
+![IP](https://github.com/Cynthia-696529/Imagenes/blob/4f14861baf29ce4eee8301509c123de7ff6c5865/Captura%20de%20pantalla%202022-08-25%20a%20las%2011.51.58.png)
 
 ## Tarea 2
 Poner en hora el módulo mediante un servidor NTP
