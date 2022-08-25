@@ -12,8 +12,8 @@
 Comunicaciones WIFI y stack IP. Manejo de protocolos de alto nivel(HTTP, FTP, NTP, MQTT) y estándares de interoperabilidad (SENML).
 
 ## Tarea 1
-Conexión a la red wifi del laboratorio o a una creada por el móvil como punto de acceso. Extrae tu IP. Comprueba la conectividad con Google mediante un ping.
-* Código
+Conexión a la red WiFi creada por el móvil como punto de acceso. Extrae tu IP. Comprueba la conectividad con Google mediante un ping.
+* Código - 1
 ```
 /*Conexion red Wifi creada por el movil como punto de acceso
   Extraer IP
@@ -60,6 +60,49 @@ Encender Mobile Hotspot, ir a la configuración, poner el mismo nombre de la red
 ![red-contraseña](https://github.com/Cynthia-696529/Imagenes/blob/6ea7d953868d23abd81e8e88ee98747437c5280e/esp32_wifi.jpeg)
 
 ![IP](https://github.com/Cynthia-696529/Imagenes/blob/4f14861baf29ce4eee8301509c123de7ff6c5865/Captura%20de%20pantalla%202022-08-25%20a%20las%2011.51.58.png)
+
+*  Codigo - 2
+
+  Es necesario descargarse la librería: https://github.com/marian-craciunescu/ESP32Ping y añadir la librería al entorno IDE         (https://programarfacil.com/blog/arduino-blog/instalar-una-libreria-de-arduino/)
+
+  ```
+#include <ESP32Ping.h>
+#include <ping.h>
+
+/*Comprobacion conectividad Google-ping
+*/
+#include <WiFi.h>
+
+const char* ssID     = "ESP32_wifi"; // Nombre WiFi
+const char* password = "patata13"; // Contraseña 
+
+void setup() {
+  Serial.begin(115200);
+ 
+  WiFi.begin(ssID, password);
+   
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Connecting to WiFi...");
+  }
+ 
+  bool success = Ping.ping("www.google.com", 3);
+ 
+  if(!success){
+    Serial.println("Ping failed");
+    return;
+  }
+ 
+  Serial.println("Ping succesful."); 
+}
+ 
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+  ```
+ 
+![google-ping] (https://github.com/Cynthia-696529/Imagenes/blob/46271ab1ab0b79d1a8319dcc5c5b4412e0c2f572/google-ping.png)
 
 ## Tarea 2
 Poner en hora el módulo mediante un servidor NTP
