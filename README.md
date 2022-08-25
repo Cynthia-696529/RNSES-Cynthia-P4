@@ -52,10 +52,13 @@ void loop() {
 }
 ```
 * Proceso
+
 Encender Mobile Hotspot, ir a la configuración, poner el mismo nombre de la red Wifi que se ha puesto en el código "ESP32_wifi"  y la misma contraseña "patata13"
 
 ![mobile hotspot](https://github.com/Cynthia-696529/Imagenes/blob/6ea7d953868d23abd81e8e88ee98747437c5280e/mobileHotspot.jpeg)
+
 ![red-contraseña](https://github.com/Cynthia-696529/Imagenes/blob/6ea7d953868d23abd81e8e88ee98747437c5280e/esp32_wifi.jpeg)
+
 ![IP](https://github.com/Cynthia-696529/Imagenes/blob/4f14861baf29ce4eee8301509c123de7ff6c5865/Captura%20de%20pantalla%202022-08-25%20a%20las%2011.51.58.png)
 
 ## Tarea 2
