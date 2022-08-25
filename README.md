@@ -102,7 +102,7 @@ void loop() {
 }
   ```
  
-![google-ping] (https://github.com/Cynthia-696529/Imagenes/blob/46271ab1ab0b79d1a8319dcc5c5b4412e0c2f572/google-ping.png)
+![google-ping](https://github.com/Cynthia-696529/Imagenes/blob/46271ab1ab0b79d1a8319dcc5c5b4412e0c2f572/google-ping.png)
 
 ## Tarea 2
 Poner en hora el módulo mediante un servidor NTP
