@@ -108,6 +108,58 @@ void loop() {
 Poner en hora el módulo mediante un servidor NTP
 * https://www.esp32.com/viewtopic.php?t=5978
 * https://lastminuteengineers.com/esp32-ntp-server-date-time-tutorial/
+* Código
+```
+/*TAREA 2 :Poner en hora el modulo mediante servidor NTP
+*/
+#include <WiFi.h>
+#include "time.h"
+
+const char* ssID     = "ESP32_wifi"; // Nombre WiFi
+const char* password = "patata13"; // Contraseña 
+
+const char* ntpServer = "pool.ntp.org";   // Servidor horario
+const long  gmtOffset_sec = 3600;         // Compensar UTC para mi zona horaria en ms
+const int   daylightOffset_sec = 3600;    // Compensar la luz del día 
+
+void setup() {
+ Serial.begin(115200);
+  //connect to WiFi
+  Serial.printf("Connecting to %s ", ssID);
+  WiFi.begin(ssID, password);
+  while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+  }
+  Serial.println("CONNECTED");
+  
+  //init and get the time
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer); // inicializar el cliente NTP 
+                                                            // obtener la fecha y la hora de un servidor NTP
+  printLocalTime();                                         // imprimir hora actual.
+  //disconnect WiFi as it's no longer needed
+  WiFi.disconnect(true);
+  WiFi.mode(WIFI_OFF);
+}
+
+void loop() {
+  delay(1000);
+  printLocalTime();   //hora local
+}
+
+/*Funciones auxiliares*/
+void printLocalTime(){
+  struct tm timeinfo;
+  if(!getLocalTime(&timeinfo)){
+    Serial.println("Failed to obtain time");
+    return;
+  }
+  Serial.println(&timeinfo, " %H:%M:%S");  // imprimir hora  
+}  
+```
+![hora](https://github.com/Cynthia-696529/Imagenes/blob/11d776754df9ee966c83f65dd62f13ceec31786b/hora.png)
+
+
  ## Tarea 3
 * Montar un chat una aplicación software PC (http://sockettest.sourceforge.net/) o con una aplicación móvil (simple TCP socket tester). A veces el firewall del ordenador no permite las conexiones externas, y es necesario configurarlo correctamente.
 * Sustituir uno de los extremos por el módulo hardware siendo cliente y envíar cada segundo la hora local.
