@@ -173,6 +173,8 @@ void printLocalTime(){
     * Paso 5: Testeo. Escribir el mismo puerto en **Server** y **Cliente** y conectar. Enviar mensajes para comprobar el correcto funcionamiento
     ![testeo](https://github.com/Cynthia-696529/Imagenes/blob/d7a6cb2cfa274544d633dd9333c904696c9e435d/testsock.png)
 * Sustituir uno de los extremos por el módulo hardware siendo cliente y envíar cada segundo la hora local.
+      * Paso 1: 
+      https://techtutorialsx.com/2018/05/17/esp32-arduino-sending-data-with-socket-client/
 * Añadir una capa de control de tal modo que cuando se le mande “start” empiece a mandar la hora hasta que se le mande “stop”.
 ## Tarea 4 
 Montar un servidor WEB (https://randomnerdtutorials.com/esp32-web-server-spiffs-spi-flash-file-system/) que muestre la hora y tenga un botón para resetear la hora a las 0:00
