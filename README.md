@@ -168,6 +168,8 @@ void printLocalTime(){
     ![udp_port](https://github.com/Cynthia-696529/Imagenes/blob/e66b434f177d22f054c9609d6431d163b5e56d08/sudo.png)
     * Paso 4: en la pestaña **Udp**, escribir el puerto elegido y conectar
     ![udp_socket](https://github.com/Cynthia-696529/Imagenes/blob/afa033e5bc3f0abe88ca5a8147b6090b29a06534/udp.png)
+    * Paso 5: Testeo. Escribir el mismo puerto en **Server** y **Cliente** y conectar. Enviar mensajes para comprobar el correcto funcionamiento
+    ![testeo](https://github.com/Cynthia-696529/Imagenes/blob/d7a6cb2cfa274544d633dd9333c904696c9e435d/testsock.png)
 * Sustituir uno de los extremos por el módulo hardware siendo cliente y envíar cada segundo la hora local.
 * Añadir una capa de control de tal modo que cuando se le mande “start” empiece a mandar la hora hasta que se le mande “stop”.
 ## Tarea 4 
