@@ -10,6 +10,8 @@
 
 ## Información
 Comunicaciones WIFI y stack IP. Manejo de protocolos de alto nivel(HTTP, FTP, NTP, MQTT) y estándares de interoperabilidad (SENML).
+* Socket: https://www.keil.com/pack/doc/mw/Network/html/group__net_sockets.html
+
 
 ## Tarea 1
 Conexión a la red WiFi creada por el móvil como punto de acceso. Extrae tu IP. Comprueba la conectividad con Google mediante un ping.
