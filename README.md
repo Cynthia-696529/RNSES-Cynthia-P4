@@ -161,7 +161,13 @@ void printLocalTime(){
 
 
  ## Tarea 3
-* Montar un chat una aplicación software PC (http://sockettest.sourceforge.net/) o con una aplicación móvil (simple TCP socket tester). A veces el firewall del ordenador no permite las conexiones externas, y es necesario configurarlo correctamente.
+* Montar un chat una aplicación software PC (http://sockettest.sourceforge.net) o con una aplicación móvil (simple TCP socket tester). A veces el firewall del ordenador no permite las conexiones externas, y es necesario configurarlo correctamente.
+    * Paso 1: actualizar o descargar Java si es necesario.
+    * Paso 2: descargar Sockettest (http://sockettest.sourceforge.net), descarga la carpeta de github. Abrir "SocketTest-master" y en la carpeta dist ejecutar socketTest.jar. Si hay problemas de seguridad abrir **Preferencias del sistema** -> Java-> Seguridad-> Lista de excepciones-> editar lista de sitios. Hacer doble clic en alguna de las líneas y añadir la url de http://sockettest.sourceforge.net, clic en agregar y aceptar. Ejecutar de nuevo socketTest.jar. 
+    * Paso 3: abrir Terminal y ejecuar el comando: sudo service ssh status. Elegir uno de los puertos udp que aparece para realizar el test.
+    ![udp_port](https://github.com/Cynthia-696529/Imagenes/blob/e66b434f177d22f054c9609d6431d163b5e56d08/sudo.png)
+    * Paso 4: en la pestaña **Udp**, escribir el puerto elegido y conectar
+    ![udp_socket](https://github.com/Cynthia-696529/Imagenes/blob/afa033e5bc3f0abe88ca5a8147b6090b29a06534/udp.png)
 * Sustituir uno de los extremos por el módulo hardware siendo cliente y envíar cada segundo la hora local.
 * Añadir una capa de control de tal modo que cuando se le mande “start” empiece a mandar la hora hasta que se le mande “stop”.
 ## Tarea 4 
