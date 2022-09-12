@@ -173,18 +173,46 @@ void printLocalTime(){
     * Paso 5: Testeo. Escribir el mismo puerto en **Server** y **Cliente** y conectar. Enviar mensajes para comprobar el correcto funcionamiento
     ![testeo](https://github.com/Cynthia-696529/Imagenes/blob/d7a6cb2cfa274544d633dd9333c904696c9e435d/testsock.png)
 * Sustituir uno de los extremos por el módulo hardware siendo cliente y envíar cada segundo la hora local.
-      * Paso 1: 
-      https://techtutorialsx.com/2018/05/17/esp32-arduino-sending-data-with-socket-client/
-* Añadir una capa de control de tal modo que cuando se le mande “start” empiece a mandar la hora hasta que se le mande “stop”.
-## Tarea 4 
-Montar un servidor WEB (https://randomnerdtutorials.com/esp32-web-server-spiffs-spi-flash-file-system/) que muestre la hora y tenga un botón para resetear la hora a las 0:00
-## Tarea 5
-Basándose en el estándar SENML (https://tools.ietf.org/html/rfc8428) crear un fichero json (https://arduinojson.org/) que se genere cada 10 segundos, que contenga datos de temperatura inventados, las unidades y la marca temporal. Súbelos a un servidor ftp con un nombre que sea grupoXX_ddmmss.json. (https://platformio.org/lib/show/6543/esp32_ftpclient). Usa el del laboratorio (IP: 155.210.150.77, user: rsense, pass: rsense) o móntate uno con https://filezilla-project.org/download.php?type=server (asegúrate que el firewall permite conexiones entrantes).
+    * Paso 1: https://techtutorialsx.com/2018/05/17/esp32-arduino-sending-data-with-socket-client/
+    
+```
+/*TAREA 3: chat aplicación software PC 
+*/
+//no ha sido posible que conectarse al host
+#include <WiFi.h>
 
-## Tarea 6
-Subir datos a la nube, en concreto al servicio gratuito proporcionado por Adafruit.
-* En primer lugar se debe de crear un usuario en https://io.adafruit.com/, generar una aplicación y obtener un “AIO Key” y crear un feed al que subir datos. Leer info en https://learn.adafruit.com/adafruit-io-basics-feeds
-* Subir datos desde navegador (https://www.apirequest.io/) utilizando POST HTTP según documentación (https://io.adafruit.com/api/docs/?shell#create-data)
-* Usar librería de Adafruit IO (https://github.com/adafruit/Adafruit_IO_Arduino) para subir datos al feed usando MQTT.
-* Usar la librería para suscribirte al feed y comprueba que recibes actualización al escribir desde el navegador.
-* https://github.com/plapointe6/EspMQTTClient
+const char* ssID     = "ESP32_wifi"; // Nombre WiFi
+const char* password = "patata13"; // Contraseña 
+
+const uint16_t port = 62514;
+const char * host = "127.0.0.1";          // IP ADDRESS
+
+void setup(){
+  Serial.begin(115200); 
+  WiFi.begin(ssID, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("...");
+  } 
+  Serial.print("WiFi connected with IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+
+void loop() {
+WiFiClient client;
+  if (!client.connect(host, port)) {
+    Serial.println("Connection to host failed"); 
+    delay(1000);
+    return;
+  }
+
+Serial.println("Connected to server successful!"); 
+client.print("Hello from ESP32!"); 
+Serial.println("Disconnecting...");
+client.stop(); 
+delay(10000);
+}
+
+
+
